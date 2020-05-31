@@ -39,7 +39,7 @@
           <div class="flex-small">
             <div class="price-box">
               <h4>Basic</h4>
-              <p>
+              <p id="prices">
                 <span class="monthly">
                   &dollar;19.99
                 </span>
@@ -58,7 +58,7 @@
           <div class="flex-small">
             <div class="price-box">
               <h4>Professional</h4>
-              <p>
+              <p id="prices">
                 <span class="monthly">
                   &dollar;24.99
                 </span>
@@ -74,10 +74,10 @@
               <button>Learn More</button>
             </div>
           </div>
-          <div id="flexy" class="flex-small">
+          <div class="flex-small">
             <div class="price-box">
               <h4>Master</h4>
-              <p>
+              <p id="prices">
                 <span class="monthly">
                   &dollar;39.99
                 </span>
@@ -98,7 +98,7 @@
     </div>
   </body>
   <script>
-    const flexy = document.getElementById('flexy');
+    const prices = document.querySelectorAll("#prices")
 
     document.querySelectorAll("#subscription").forEach(function (theSwitch) {
       theSwitch.addEventListener("click", handleClickEvent, false);
@@ -107,11 +107,13 @@
     function handleClickEvent(evt) {
       let el = evt.target;
 
-      flexy.classList.toggle('show-annually')
-
       if (el.getAttribute("aria-checked") === "true") {
+        prices.forEach(price => price.children[0].style.display = 'none')
+        prices.forEach(price => price.children[1].style.display = 'block')
         el.setAttribute("aria-checked", "false");
       } else {
+        prices.forEach(price => price.children[0].style.display = 'block')
+        prices.forEach(price => price.children[1].style.display = 'none')
         el.setAttribute("aria-checked", "true");
       }
     }

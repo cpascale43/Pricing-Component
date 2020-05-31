@@ -1057,10 +1057,6 @@ div.flex-large > div {
 	padding: 15px 0;
 }
 
-.show-annually .price-box .annually {
-	display: block;
-}
-
-.show-annually .price-box .monthly {
-	display: none;
+#prices .annually {
+  display: none;
 }
